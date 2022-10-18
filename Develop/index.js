@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 
 // TODO: Create an array of questions for user input
@@ -34,7 +34,7 @@ const questions = [
     {
         type: 'checkbox',
         message: 'Which license are you planning on using for this project?',
-        choices: ['MIT', 'ISC', 'Apache2.0'],
+        choices: ['MIT', 'ISC', 'Apache2.0', 'Other'],
         name: 'license'
     },
     {
@@ -44,7 +44,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: '',
+        message: 'Describe any tests that were done for this project and how to run them.',
         name: 'tests'
     },
     {
@@ -65,16 +65,18 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile('README.md', JSON.stringify(data, null, '\t'),
-        (err) => err ? console.log(err) : console.log("README.md file succsfully created!"));
+    fs.writeFile('README.md', ??????????????,
+        (err) => err ? console.log(err) : console.log("README.md file succsfully created")
+    );
 
-}
+};
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(questions).then((data) => {
+    inquirer.prompt(questions).then((responses) => {
         // const fileName = `${data.   .split(' ').join(' ')}.md`;
-        console.log(data);
+        console.log(responses);
+        writeToFile();
     });
 }
 
