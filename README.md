@@ -8,7 +8,7 @@
 ## Description 
 This application creates a markdown file that can be used in GitHub repositories
 
-![Screenshot](/images/screenshot.readme.png)
+![Screenshot](/Develop/images/screenshot.readme.png)
 
 ## Table of Contents   
 * [Description](#description)
