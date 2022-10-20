@@ -46,20 +46,20 @@ inquirer
     {
         type: 'input',
         message: 'What is your GitHub username?',
-        name: 'github_question'
+        name: 'GitHub'
 
     },
     {
         type: 'input',
         message: 'What is your email for any further questions?',
-        name: 'email_question'
+        name: 'email'
     },
 ])
 .then((data) => {
     const contentReadMe = generateMarkdown(data);
 
     fs.writeFile('README.md', contentReadMe,
-    (err) => err ? console.log(err) : console.log("README.md file succsfully created")
+    (err) => err ? console.log(err) : console.log("README.md file successfully created")
     );
 });
 

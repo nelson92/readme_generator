@@ -60,7 +60,7 @@ function generateMarkdown(data) {
   return `# ${data.title} 
   
 ${renderLicenseBadge(data.license)}
-/n
+
 ${renderLicenseLink(data.license)}
 
 
@@ -68,23 +68,20 @@ ${renderLicenseLink(data.license)}
 ${data.description}
 
 ## Table of Contents   
+* [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Description](#description)
 * [Contributing](#contributing)
-* [Test](#tests)
+* [Tests](#tests)
 * [License](#license)
-* [GitHub_Question](#github_question)
-* [Email_Question](#email_question)
+* [GitHub Username](#GitHub)
+* [Questions](#email)
 
 ## Installation 
 ${data.installation}
 
 ## Usage
 ${data.usage}
-
-## Description 
-${data.description}
 
 ## Contributing
 ${data.contributing}
@@ -95,11 +92,12 @@ ${data.tests}
 ## License
 ${data.license}
 
-## GitHub Username
-${data.github_question}
+## Questions
+${data.GitHub}
 
-## Email
-${data.email_question}
+${data.email}
+
+
 
 `;
 
