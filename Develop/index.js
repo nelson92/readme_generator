@@ -28,7 +28,7 @@ inquirer
         name: 'usage'
     },
     {
-        type: 'checkbox',
+        type: 'list',
         message: 'Which license are you planning on using for this project?',
         choices: ['MIT', 'ISC', 'Apache2.0'],
         name: 'license'
@@ -56,7 +56,7 @@ inquirer
     },
 ])
 .then((data) => {
-    const contentReadMe  = generateMarkdown(data);
+    const contentReadMe = generateMarkdown(data);
 
     fs.writeFile('README.md', contentReadMe,
     (err) => err ? console.log(err) : console.log("README.md file succsfully created")
