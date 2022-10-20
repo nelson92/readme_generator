@@ -5,7 +5,8 @@ const generateMarkdown = require('./utils/generateMarkdown.js');
 
 
 // TODO: Create an array of questions for user input
-const questions = [
+inquirer
+    .prompt([
     {
         type: 'input',
         message: 'What is the title of your project?',
@@ -16,11 +17,6 @@ const questions = [
         message: 'What is the description of your project?',
         name: 'description'
     },
-    {
-        type: 'confirm',
-        message: 'Do you have a table of contents?',
-        name: 'table'
-    }, 
     {
         type: 'input',
         message: 'What steps are required to install your application?',
@@ -34,7 +30,7 @@ const questions = [
     {
         type: 'checkbox',
         message: 'Which license are you planning on using for this project?',
-        choices: ['MIT', 'ISC', 'Apache2.0', 'Other'],
+        choices: ['MIT', 'ISC', 'Apache2.0'],
         name: 'license'
     },
     {
@@ -50,38 +46,56 @@ const questions = [
     {
         type: 'input',
         message: 'What is your GitHub username?',
-        name: 'github question'
+        name: 'github_question'
 
     },
     {
         type: 'input',
         message: 'What is your email for any further questions?',
-        name: 'email question'
-    }
+        name: 'email_question'
+    },
+])
+.then((data) => {
+    const contentReadMe  = generateMarkdown(data);
 
-];
+    fs.writeFile('README.md', contentReadMe,
+    (err) => err ? console.log(err) : console.log("README.md file succsfully created")
+    );
+});
 
+
+
+
+
+// renderLicenseBadge();
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile('README.md', ??????????????,
-        (err) => err ? console.log(err) : console.log("README.md file succsfully created")
-    );
+// function writeToFile(questions) {
+//     fs.writeFile('README.md', generateMarkdown,
+//         (err) => err ? console.log(err) : console.log("README.md file succsfully created")
+//     );
 
-};
+// };
+// writeToFile();
 
-// TODO: Create a function to initialize app
-function init() {
-    inquirer.prompt(questions).then((responses) => {
-        // const fileName = `${data.   .split(' ').join(' ')}.md`;
-        console.log(responses);
-        writeToFile();
-    });
-}
+
+// // TODO: Create a function to initialize app
+// function init() {
+//     inquirer.prompt(questions).then((responses) => {
+//         // const fileName = `${data.   .split(' ').join(' ')}.md`;
+//         console.log(responses);
+        
+//     });
+// }
+
+// const generateReadME = ({title, description, installation, usage, license, contributing, tests, github, email
+// }) =>
+
+
 
 
 
 
 // Function call to initialize app
-init();
+// init()
